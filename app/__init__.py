@@ -1,6 +1,7 @@
 from flask import Flask
 
 import config
+from app import extensions as ext
 
 
 def create_app():
@@ -11,6 +12,11 @@ def create_app():
         static_url_path="/",
     )
     app.config.from_object(config.Config)
+
+    # initialize extensions
+    ext.db.init_app(app)
+    # ext.login_manager.init_app(app)
+    ext.csrf.init_app(app)
 
     from app.routes import main
 
