@@ -23,3 +23,8 @@ def login():
         else:
             flash("Email or password incorrect!", "danger")
     return render_template("auth/login.html", form=form)
+
+
+@bp.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("auth/register.html")
