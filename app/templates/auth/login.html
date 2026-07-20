@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-    <h1>Login</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6 p-5 bg-body-secondary border">
+            <h1>Login</h1>
+            <form action="{{ url_for("auth.login") }}" method="post">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    <legend class="mb-5">Welcome back, please enter your details!</legend>
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label") }}
+                        {{ form.email(class="form-control form-control-lg", placeholder="Enter email") }}
+                    </div>
+                    <div class="mb-5">
+                        {{ form.password.label(class="form-label") }}
+                        {{ form.password(class="form-control form-control-lg", placeholder="Enter your password") }}
+                    </div>
+                    {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
+                </fieldset>
+                <p class="text-center mt-4 mb-0">
+                    Don't have an account? <a href="#">Register here</a>
+                </p>
+            </form>
+        </div>
+    </div>
 {% endblock content %}
