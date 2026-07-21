@@ -2,7 +2,7 @@ from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_user
 from werkzeug.security import check_password_hash
 
-from app.forms import LoginForm
+from app.forms import LoginForm, RegisterForm
 from app.models import User
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
@@ -27,4 +27,5 @@ def login():
 
 @bp.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("auth/register.html")
+    form = RegisterForm()
+    return render_template("auth/register.html", form=form)
