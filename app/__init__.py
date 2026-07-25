@@ -21,9 +21,9 @@ def create_app():
     ext.csrf.init_app(app)
 
     # login manager configurations
-    ext.login_manager.login_message = "Welcome back!"
+    ext.login_manager.login_message = "Please log in to view this page!"
     ext.login_manager.login_message_category = "info"
-    # ext.login_manager.login_view = ""
+    ext.login_manager.login_view = "auth.login"
 
     # register blueprints
     app.register_blueprint(main.bp)
