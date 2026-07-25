@@ -19,7 +19,7 @@
                     {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
                 </fieldset>
                 <p class="text-center mt-4 mb-0">
-                    Don't have an account? <a href="#">Register here</a>
+                    Don't have an account? <a href="{{ url_for("auth.register") }}">Register here</a>
                 </p>
             </form>
         </div>
