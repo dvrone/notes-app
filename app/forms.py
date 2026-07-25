@@ -44,3 +44,30 @@ class RegisterForm(FlaskForm):
             raise ValidationError(
                 "Email already registered. Please choose a different email."
             )
+
+
+class ProfileEditForm(FlaskForm):
+    name = StringField(
+        "Name",
+        validators=[
+            # DataRequired(message="Please enter your name."),
+            Length(max=126, message="Name must be 126 characters or fewer."),
+        ],
+        description="Enter your full name.",
+    )
+    email = EmailField(
+        "Email Address",
+        validators=[
+            # DataRequired(message="Please enter your email address."),
+            Email(message="Please enter a valid email address."),
+        ],
+        description="Enter your email address.",
+    )
+    submit = SubmitField("Update")
+
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError(
+                "Email already registered. Please choose a different email."
+            )
