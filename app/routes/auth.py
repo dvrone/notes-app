@@ -1,5 +1,5 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_user
+from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.extensions import db
@@ -18,7 +18,7 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and check_password_hash(user.password_hash, form.password.data):
             login_user(user)
-            flash("Welcome back!", "info")
+            flash(f"Welcome back, {user.name}!", "success")
             next_page = request.args.get("next", None)
             return redirect(next_page or url_for("main.index"))
         else:
@@ -39,6 +39,14 @@ def register():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        flash("Your account created successfully", "success")
+        flash("Your account created successfully.", "success")
         return redirect(url_for("main.index"))
     return render_template("auth/register.html", form=form)
+
+
+@bp.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    flash("You are logged out.", "info")
+    return redirect(url_for("auth.login"))
