@@ -28,7 +28,7 @@
                            aria-haspopup="true"
                            aria-expanded="false">{{ current_user.name }}</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="{{ url_for("auth.profile") }}">Profile</a>
                             <a class="dropdown-item" href="#">Notes</a>
                             <a class="dropdown-item" href="#">Settings</a>
                             <div class="dropdown-divider"></div>

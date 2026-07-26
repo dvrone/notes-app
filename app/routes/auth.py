@@ -3,7 +3,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from app.extensions import db
-from app.forms import LoginForm, RegisterForm
+from app.forms import LoginForm, ProfileEditForm, RegisterForm
 from app.models import User
 
 bp = Blueprint("auth", __name__, url_prefix="/auth")
@@ -50,3 +50,16 @@ def logout():
     logout_user()
     flash("You are logged out.", "info")
     return redirect(url_for("auth.login"))
+
+
+@bp.route("/profile", methods=["GET", "POST"])
+@login_required
+def profile():
+    form = ProfileEditForm()
+    if form.validate_on_submit():
+        current_user.name = form.name.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash("Your profile has been updated.", "success")
+        return redirect(url_for("main.index"))
+    return render_template("auth/profile.html")
