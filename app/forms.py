@@ -1,3 +1,4 @@
+from flask_login import current_user
 from flask_wtf import FlaskForm
 from wtforms import EmailField, PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, Length, ValidationError
@@ -67,7 +68,7 @@ class ProfileEditForm(FlaskForm):
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
-        if user:
+        if user and user.id != current_user.id:
             raise ValidationError(
                 "Email already registered. Please choose a different email."
             )

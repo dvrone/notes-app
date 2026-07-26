@@ -56,4 +56,10 @@ def logout():
 @login_required
 def profile():
     form = ProfileEditForm(obj=current_user)
+    if form.validate_on_submit():
+        current_user.name = form.name.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash("Your account has been updated.", "success")
+        return redirect(url_for("auth.profile"))
     return render_template("auth/profile.html", form=form)
