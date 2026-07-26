@@ -1,22 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Your Profile{% endblock %}
+{% block title %}{{ _("Your Profile") }}{% endblock %}
 {% block content %}
     <div class="bg-body-secondary p-5 border mb-5">
         <h5>{{ current_user.name }}</h5>
         <hr>
-        <p class="mb-0"><strong>Email:</strong> {{ current_user.email }}</p>
-        <p class="mb-0"><strong>Jointed:</strong> <time datetime="{{ current_user.joined_at }}">{{ current_user.joined_at.strftime("%B %Y") }}</time></p>
+        <p class="mb-0"><strong>{{ _("Email") }}:</strong> {{ current_user.email }}</p>
+        <p class="mb-0"><strong>{{ _("Jointed") }}:</strong> <time datetime="{{ current_user.joined_at }}">{{ current_user.joined_at.strftime("%B %Y") }}</time></p>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-6 bg-body-secondary p-5 border">
-            <h2>Update Profile</h2>
+            <h2>{{ _("Update Profile") }}</h2>
             <form action="{{ url_for("auth.profile") }}" method="post">
                 {{ form.hidden_tag() }}
                 <fieldset>
-                    <legend class="mb-5">Account Information</legend>
+                    <legend class="mb-5">{{ _("Account Information") }}</legend>
                     <div class="mb-3">
                         {{ form.name.label(class="form-label") }}
-                        {{ form.name(class="form-control form-control-lg" + (" is-invalid" if form.name.errors else "") , placeholder="Your Name") }}
+                        {{ form.name(class="form-control form-control-lg" + (" is-invalid" if form.name.errors else "") , placeholder=_("Your Name")) }}
                         {% for error in form.name.errors %}
                             <div class="invalid-feedback small">{{ error }}</div>
                         {% endfor %}
@@ -24,7 +24,7 @@
                     </div>
                     <div class="mb-5">
                         {{ form.email.label(class="form-label") }}
-                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") , placeholder="your.email@example.com") }}
+                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") , placeholder=_("your.email@example.com")) }}
                         {% for error in form.email.errors %}
                             <div class="invalid-feedback small">{{ error }}</div>
                         {% endfor %}

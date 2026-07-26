@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Register{% endblock title %}
+{% block title %}{{ _("Register") }}{% endblock title %}
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-md-6 p-5 bg-body-secondary border">
-            <h1>Register</h1>
+            <h1>{{ _("Register") }}</h1>
             <form action="{{ url_for("auth.register") }}" method="post">
                 {{ form.hidden_tag() }}
                 <fieldset>
-                    <legend class="mb-5">Create your account, please enter your details!</legend>
+                    <legend class="mb-5">{{ _("Create your account, please enter your details!") }}</legend>
                     <div class="mb-3">
                         {{ form.name.label(class="form-label") }}
-                        {{ form.name(class="form-control form-control-lg" + (" is-invalid" if form.name.errors else "") , placeholder="Your Name") }}
+                        {{ form.name(class="form-control form-control-lg" + (" is-invalid" if form.name.errors else "") ) }}
                         {% for error in form.name.errors %}
                             <div class="invalid-feedback small">{{ error }}</div>
                         {% endfor %}
@@ -18,7 +18,7 @@
                     </div>
                     <div class="mb-3">
                         {{ form.email.label(class="form-label") }}
-                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") , placeholder="your.email@example.com") }}
+                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") ) }}
                         {% for error in form.email.errors %}
                             <div class="invalid-feedback small">{{ error }}</div>
                         {% endfor %}
@@ -26,7 +26,7 @@
                     </div>
                     <div class="mb-5">
                         {{ form.password.label(class="form-label") }}
-                        {{ form.password(class="form-control form-control-lg" + (" is-invalid" if form.password.errors else "") , placeholder="") }}
+                        {{ form.password(class="form-control form-control-lg" + (" is-invalid" if form.password.errors else "") ) }}
                         {% for error in form.password.errors %}
                             <div class="invalid-feedback small">{{ error }}</div>
                         {% endfor %}
@@ -35,7 +35,7 @@
                     {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
                 </fieldset>
                 <p class="text-center mt-4 mb-0">
-                    Do you have an account? <a href="{{ url_for("auth.login") }}">Login here</a>
+                    {{ _("Do you have an account?") }} <a href="{{ url_for("auth.login") }}">{{ _("Login here") }}</a>
                 </p>
             </form>
         </div>

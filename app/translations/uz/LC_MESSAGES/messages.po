@@ -1,0 +1,182 @@
+# Uzbek translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-26 22:58+0500\n"
+"PO-Revision-Date: 2026-07-26 22:49+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uz\n"
+"Language-Team: uz <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app/__init__.py:31
+msgid "Please log in to view this page!"
+msgstr "Ushbu sahifani ko'rish uchun tizimga kiring!"
+
+#: app/forms.py:11 app/forms.py:26 app/forms.py:60
+msgid "Email Address"
+msgstr "Elektron pochta manzili"
+
+#: app/forms.py:12 app/forms.py:34
+msgid "Password"
+msgstr "Parol"
+
+#: app/forms.py:13 app/templates/auth/login.html:2
+#: app/templates/auth/login.html:6
+msgid "Login"
+msgstr "Kirish"
+
+#: app/forms.py:18 app/forms.py:53
+msgid "Name"
+msgstr "Ism"
+
+#: app/forms.py:20
+msgid "Please enter your name."
+msgstr "Iltimos, ismingizni kiriting."
+
+#: app/forms.py:21 app/forms.py:55
+msgid "Name must be 126 characters or fewer."
+msgstr "Ism 126 ta belgidan oshmasligi kerak."
+
+#: app/forms.py:23 app/forms.py:57
+msgid "Enter your full name."
+msgstr "To'liq ismingizni kiriting."
+
+#: app/forms.py:28
+msgid "Please enter your email address."
+msgstr "Iltimos, elektron pochta manzilingizni kiriting."
+
+#: app/forms.py:29 app/forms.py:62
+msgid "Please enter a valid email address."
+msgstr "Iltimos, to'g'ri elektron pochta manzilini kiriting."
+
+#: app/forms.py:31
+msgid "Enter the email address for your account."
+msgstr "Hisobingiz uchun elektron pochta manzilini kiriting."
+
+#: app/forms.py:36
+msgid "Please enter a password."
+msgstr "Iltimos, parol kiriting."
+
+#: app/forms.py:37
+msgid "Password must be at least 8 characters long."
+msgstr "Parol kamida 8 ta belgidan iborat bo'lishi kerak."
+
+#: app/forms.py:39
+msgid "Choose a secure password with at least 8 characters."
+msgstr "Kamida 8 ta belgidan iborat xavfsiz parol tanlang."
+
+#: app/forms.py:41
+msgid "Create Account"
+msgstr "Hisob yaratish"
+
+#: app/forms.py:47 app/forms.py:72
+msgid "Email already registered. Please choose a different email."
+msgstr "Bu elektron pochta allaqachon ro'yxatdan o'tgan. Boshqa manzil tanlang."
+
+#: app/forms.py:64
+msgid "Enter your email address."
+msgstr "Elektron pochta manzilingizni kiriting."
+
+#: app/forms.py:66
+msgid "Update"
+msgstr "Yangilash"
+
+#: app/routes/auth.py:22
+#, python-format
+msgid "Welcome back, %(name)s!"
+msgstr "Xush kelibsiz, %(name)s!"
+
+#: app/routes/auth.py:26
+msgid "Incorrect email or password, please try again!"
+msgstr "Elektron pochta yoki parol noto'g'ri, qaytadan urinib ko'ring!"
+
+#: app/routes/auth.py:43
+msgid "Your account has been created."
+msgstr "Hisobingiz yaratildi."
+
+#: app/routes/auth.py:52
+msgid "You are logged out."
+msgstr "Tizimdan chiqdingiz."
+
+#: app/routes/auth.py:64
+msgid "Your account has been updated."
+msgstr "Hisobingiz yangilandi."
+
+#: app/templates/base.html:31
+msgid "Message"
+msgstr "Xabar"
+
+#: app/templates/auth/login.html:10
+msgid "Welcome back, please enter your details!"
+msgstr "Xush kelibsiz, ma'lumotlaringizni kiriting!"
+
+#: app/templates/auth/login.html:13
+msgid "Enter email"
+msgstr "Elektron pochtangizni kiriting"
+
+#: app/templates/auth/login.html:20
+msgid "Enter your password"
+msgstr "Parolingizni kiriting"
+
+#: app/templates/auth/login.html:28
+msgid "Don't have an account?"
+msgstr "Hisobingiz yo'qmi?"
+
+#: app/templates/auth/login.html:28
+msgid "Register here"
+msgstr "Bu yerda ro'yxatdan o'ting"
+
+#: app/templates/auth/profile.html:2
+msgid "Your Profile"
+msgstr "Profilingiz"
+
+#: app/templates/auth/profile.html:7
+msgid "Email"
+msgstr "Elektron pochta"
+
+#: app/templates/auth/profile.html:8
+msgid "Jointed"
+msgstr "Qo'shilgan sana"
+
+#: app/templates/auth/profile.html:12
+msgid "Update Profile"
+msgstr "Profilni yangilash"
+
+#: app/templates/auth/profile.html:16
+msgid "Account Information"
+msgstr "Hisob ma'lumotlari"
+
+#: app/templates/auth/profile.html:19
+msgid "Your Name"
+msgstr "Ismingiz"
+
+#: app/templates/auth/profile.html:27
+msgid "your.email@example.com"
+msgstr "your.email@example.com"
+
+#: app/templates/auth/register.html:2 app/templates/auth/register.html:6
+msgid "Register"
+msgstr "Ro'yxatdan o'tish"
+
+#: app/templates/auth/register.html:10
+msgid "Create your account, please enter your details!"
+msgstr "Hisobingizni yarating, ma'lumotlaringizni kiriting!"
+
+#: app/templates/auth/register.html:38
+msgid "Do you have an account?"
+msgstr "Hisobingiz bormi?"
+
+#: app/templates/auth/register.html:38
+msgid "Login here"
+msgstr "Bu yerdan kiring"
+

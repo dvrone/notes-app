@@ -11,3 +11,5 @@ class Config:
         "SQLALCHEMY_DATABASE_URI", "sqlite:///app.db"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    BABEL_DEFAULT_LOCALE = "uz"
+    BABEL_DEFAULT_TIMEZONE = "Asia/Tashkent"

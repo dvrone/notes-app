@@ -1,23 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock title %}
+{% block title %}{{ _("Login") }}{% endblock title %}
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-md-6 p-5 bg-body-secondary border">
-            <h1>Login</h1>
+            <h1>{{ _("Login") }}</h1>
             <form action="{{ url_for("auth.login") }}" method="post">
                 {{ form.hidden_tag() }}
                 <fieldset>
-                    <legend class="mb-5">Welcome back, please enter your details!</legend>
+                    <legend class="mb-5">{{ _("Welcome back, please enter your details!") }}</legend>
                     <div class="mb-3">
                         {{ form.email.label(class="form-label") }}
-                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") , placeholder="Enter email") }}
+                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") , placeholder=_("Enter email")) }}
                         {% for error in form.email.errors %}
                             <div class="invalid-feedback small">{{ error }}</div>
                         {% endfor %}
                     </div>
                     <div class="mb-5">
                         {{ form.password.label(class="form-label") }}
-                        {{ form.password(class="form-control form-control-lg" + (" is-invalid" if form.password.errors else "") , placeholder="Enter your password") }}
+                        {{ form.password(class="form-control form-control-lg" + (" is-invalid" if form.password.errors else "") , placeholder=_("Enter your password")) }}
                         {% for error in form.password.errors %}
                             <div class="invalid-feedback small">{{ error }}</div>
                         {% endfor %}
@@ -25,7 +25,7 @@
                     {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
                 </fieldset>
                 <p class="text-center mt-4 mb-0">
-                    Don't have an account? <a href="{{ url_for("auth.register") }}">Register here</a>
+                    {{ _("Don't have an account?") }} <a href="{{ url_for("auth.register") }}">{{ _("Register here") }}</a>
                 </p>
             </form>
         </div>

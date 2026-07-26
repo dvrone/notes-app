@@ -1,4 +1,5 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask_babel import _
 from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -18,11 +19,11 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and check_password_hash(user.password_hash, form.password.data):
             login_user(user)
-            flash(f"Welcome back, {user.name}!", "success")
+            flash(_("Welcome back, %(name)s!", name=user.name), "success")
             next_page = request.args.get("next", None)
             return redirect(next_page or url_for("main.index"))
         else:
-            flash("Email or password incorrect!", "danger")
+            flash(_("Incorrect email or password, please try again!"), "danger")
     return render_template("auth/login.html", form=form)
 
 
@@ -39,7 +40,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        flash("Your account created successfully.", "success")
+        flash(_("Your account has been created."), "success")
         return redirect(url_for("main.index"))
     return render_template("auth/register.html", form=form)
 
@@ -48,7 +49,7 @@ def register():
 @login_required
 def logout():
     logout_user()
-    flash("You are logged out.", "info")
+    flash(_("You are logged out."), "info")
     return redirect(url_for("auth.login"))
 
 
@@ -60,6 +61,6 @@ def profile():
         current_user.name = form.name.data
         current_user.email = form.email.data
         db.session.commit()
-        flash("Your account has been updated.", "success")
+        flash(_("Your account has been updated."), "success")
         return redirect(url_for("auth.profile"))
     return render_template("auth/profile.html", form=form)
