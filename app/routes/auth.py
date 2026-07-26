@@ -55,11 +55,5 @@ def logout():
 @bp.route("/profile", methods=["GET", "POST"])
 @login_required
 def profile():
-    form = ProfileEditForm()
-    if form.validate_on_submit():
-        current_user.name = form.name.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash("Your profile has been updated.", "success")
-        return redirect(url_for("main.index"))
-    return render_template("auth/profile.html")
+    form = ProfileEditForm(obj=current_user)
+    return render_template("auth/profile.html", form=form)
