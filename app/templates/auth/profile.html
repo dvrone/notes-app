@@ -16,13 +16,19 @@
                     <legend class="mb-5">Account Information</legend>
                     <div class="mb-3">
                         {{ form.name.label(class="form-label") }}
-                        {{ form.name(class="form-control form-control-lg") }}
-                        <span class="form-text text-muted">{{ form.name.description }}</span>
+                        {{ form.name(class="form-control form-control-lg" + (" is-invalid" if form.name.errors else "") , placeholder="Your Name") }}
+                        {% for error in form.name.errors %}
+                            <div class="invalid-feedback small">{{ error }}</div>
+                        {% endfor %}
+                        <span class="form-text text-muted small">{{ form.name.description }}</span>
                     </div>
                     <div class="mb-5">
                         {{ form.email.label(class="form-label") }}
-                        {{ form.email(class="form-control form-control-lg") }}
-                        <span class="form-text text-muted">{{ form.email.description }}</span>
+                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") , placeholder="your.email@example.com") }}
+                        {% for error in form.email.errors %}
+                            <div class="invalid-feedback small">{{ error }}</div>
+                        {% endfor %}
+                        <span class="form-text text-muted small">{{ form.email.description }}</span>
                     </div>
                     {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
                 </fieldset>

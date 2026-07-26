@@ -10,11 +10,17 @@
                     <legend class="mb-5">Welcome back, please enter your details!</legend>
                     <div class="mb-3">
                         {{ form.email.label(class="form-label") }}
-                        {{ form.email(class="form-control form-control-lg", placeholder="Enter email") }}
+                        {{ form.email(class="form-control form-control-lg" + (" is-invalid" if form.email.errors else "") , placeholder="Enter email") }}
+                        {% for error in form.email.errors %}
+                            <div class="invalid-feedback small">{{ error }}</div>
+                        {% endfor %}
                     </div>
                     <div class="mb-5">
                         {{ form.password.label(class="form-label") }}
-                        {{ form.password(class="form-control form-control-lg", placeholder="Enter your password") }}
+                        {{ form.password(class="form-control form-control-lg" + (" is-invalid" if form.password.errors else "") , placeholder="Enter your password") }}
+                        {% for error in form.password.errors %}
+                            <div class="invalid-feedback small">{{ error }}</div>
+                        {% endfor %}
                     </div>
                     {{ form.submit(class="w-100 btn btn-lg btn-primary") }}
                 </fieldset>
