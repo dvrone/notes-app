@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-07-26 22:58+0500\n"
+"POT-Creation-Date: 2026-07-26 23:10+0500\n"
 "PO-Revision-Date: 2026-07-26 22:49+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uz\n"
@@ -31,7 +31,7 @@ msgid "Password"
 msgstr "Parol"
 
 #: app/forms.py:13 app/templates/auth/login.html:2
-#: app/templates/auth/login.html:6
+#: app/templates/auth/login.html:6 app/templates/partials/navbar.html:41
 msgid "Login"
 msgstr "Kirish"
 
@@ -165,6 +165,7 @@ msgid "your.email@example.com"
 msgstr "your.email@example.com"
 
 #: app/templates/auth/register.html:2 app/templates/auth/register.html:6
+#: app/templates/partials/navbar.html:45
 msgid "Register"
 msgstr "Ro'yxatdan o'tish"
 
@@ -179,4 +180,28 @@ msgstr "Hisobingiz bormi?"
 #: app/templates/auth/register.html:38
 msgid "Login here"
 msgstr "Bu yerdan kiring"
+
+#: app/templates/partials/navbar.html:18
+msgid "Home"
+msgstr "Bosh sahifa"
+
+#: app/templates/partials/navbar.html:31
+msgid "Profile"
+msgstr "Profilingiz"
+
+#: app/templates/partials/navbar.html:32
+msgid "Notes"
+msgstr "Yozuvlar"
+
+#: app/templates/partials/navbar.html:33
+msgid "Settings"
+msgstr "Sozlamalar"
+
+#: app/templates/partials/navbar.html:35
+msgid "Logout"
+msgstr "Chiqish"
+
+#: app/templates/partials/navbar.html:52 app/templates/partials/navbar.html:53
+msgid "Search"
+msgstr "Qidiruv"
 

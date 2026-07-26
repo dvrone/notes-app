@@ -15,7 +15,7 @@
                 {% if current_user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.endpoint == "main.index" %}active{% endif %}"
-                           href="{{ url_for("main.index") }}">Home</a>
+                           href="{{ url_for("main.index") }}">{{ _("Home") }}</a>
                     </li>
                     <!-- <li class="nav-item"> -->
                     <!--     <a class="nav-link" href="#">About</a> -->
@@ -28,27 +28,29 @@
                            aria-haspopup="true"
                            aria-expanded="false">{{ current_user.name }}</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ url_for("auth.profile") }}">Profile</a>
-                            <a class="dropdown-item" href="#">Notes</a>
-                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="{{ url_for("auth.profile") }}">{{ _("Profile") }}</a>
+                            <a class="dropdown-item" href="#">{{ _("Notes") }}</a>
+                            <a class="dropdown-item" href="#">{{ _("Settings") }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="{{ url_for("auth.logout") }}">Logout</a>
+                            <a class="dropdown-item text-danger" href="{{ url_for("auth.logout") }}">{{ _("Logout") }}</a>
                         </div>
                     </li>
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link {% if request.endpoint == "auth.login" %}active{% endif %}"
-                           href="{{ url_for("auth.login") }}">Login</a>
+                           href="{{ url_for("auth.login") }}">{{ _("Login") }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.endpoint == "auth.register" %}active{% endif %}"
-                           href="{{ url_for("auth.register") }}">Register</a>
+                           href="{{ url_for("auth.register") }}">{{ _("Register") }}</a>
                     </li>
                 {% endif %}
             </ul>
             <form class="d-flex">
-                <input class="form-control me-sm-2" type="search" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control me-sm-2"
+                       type="search"
+                       placeholder="{{ _("Search") }}">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">{{ _("Search") }}</button>
             </form>
         </div>
     </div>
